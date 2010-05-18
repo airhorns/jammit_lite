@@ -5,7 +5,7 @@ module Jammit
     module Routes
       
       def self.draw(map)
-        Jammit::Routes.draw(map) unless Rails.env.production?
+        Jammit::Routes.draw(map) unless Rails.env.production? || Rails.env.demo?
       end
 
     end

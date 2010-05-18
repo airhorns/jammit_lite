@@ -11,7 +11,7 @@ module Jammit
       # in production, creates <script> tag for each bundle
       def include_javascripts(*bundles)
         bundles.map! { |name| Jammit::Lite::Bundle.new(:javascripts => name)  }
-        return include_individual_javascripts(bundles) unless Rails.env.production?    
+        return include_individual_javascripts(bundles) unless Rails.env.production? || Rails.env.demo?    
         tags = bundles.map { |bundle| javascript_include_tag(bundle.path) }
         tags.join("\n")
       end
@@ -42,7 +42,7 @@ module Jammit
       # in production, creates <link> tag for each bundle
       def include_stylesheets(*bundles)        
         bundles.map! { |name| Jammit::Lite::Bundle.new(:stylesheets => name)  }
-        return include_individual_stylesheets(bundles) unless Rails.env.production?    
+        return include_individual_stylesheets(bundles) unless Rails.env.production? || Raisl.env.demo?    
         tags = bundles.map { |bundle| stylesheet_link_tag(bundle.path) }
         tags.join("\n")
       end
