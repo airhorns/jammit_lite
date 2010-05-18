@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "jammit_lite"
-    gem.summary = "Replaces full Jammit gem in production. Made to reduce slug size at Heroku"
+    gem.name = "sc_jammit_lite"
+    gem.summary = "Replaces full Jammit gem in production (or demo). Made to reduce slug size at Heroku"
     gem.description = "Use Jammit on Heroku without slug bloat. Jammit::Lite loads Jammit in development, but replaces it in production saving over 9MB."
     gem.email = "jordan@digitalignition.com"
-    gem.homepage = "http://github.com/glasner/jammit_lite"
+    gem.homepage = "http://github.com/smoothcontract/jammit_lite"
     gem.authors = ["Jordan Glasner"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

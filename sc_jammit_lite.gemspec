@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jammit_lite}
-  s.version = "0.1.2"
+  s.name = %q{sc_jammit_lite}
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jordan Glasner"]
-  s.date = %q{2010-03-29}
+  s.date = %q{2010-05-18}
   s.description = %q{Use Jammit on Heroku without slug bloat. Jammit::Lite loads Jammit in development, but replaces it in production saving over 9MB.}
   s.email = %q{jordan@digitalignition.com}
   s.extra_rdoc_files = [
@@ -32,11 +32,11 @@ Gem::Specification.new do |s|
      "test/helper.rb",
      "test/test_jammit_lite.rb"
   ]
-  s.homepage = %q{http://github.com/glasner/jammit_lite}
+  s.homepage = %q{http://github.com/smoothcontract/jammit_lite}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Replaces full Jammit gem in production. Made to reduce slug size at Heroku}
+  s.rubygems_version = %q{1.3.6}
+  s.summary = %q{Replaces full Jammit gem in production (or demo). Made to reduce slug size at Heroku}
   s.test_files = [
     "test/helper.rb",
      "test/test_jammit_lite.rb"
