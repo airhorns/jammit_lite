@@ -37,7 +37,7 @@ module Jammit
 
 end
 
-require 'jammit' unless Rails.env.production? || Rails.env.demo?
+require 'jammit' unless Rails.env.production? || Rails.env.demo? || Rails.env.testing?
 files = %w(routes bundle asset helper)
 files.each { |file| require "#{File.dirname(__FILE__)}/jammit/lite/#{file}"  }
 
