@@ -18,8 +18,7 @@ module Jammit
 
       # creates <script> tags for Jammit templates
       def include_templates(*bundles)
-        tags = bundles.map { |bundle| javascript_include_tag("/assets/#{bundle}.jst")  }
-        tags.join("\n")
+        raise DeprecationError, "Jammit 0.5+ no longer supports separate packages for templates.\nYou can include your JST alongside your JS, and use include_javascripts."
       end
       
       private
@@ -40,39 +39,26 @@ module Jammit
       # creates <link> tags for Jammit css bundles
       # in development, creates <link> tag for each individual file in bundles
       # in production, creates <link> tag for each bundle
-      def include_stylesheets(*bundles)        
+      def include_stylesheets(*bundles)
+        options = bundles.extract_options!
         bundles.map! { |name| Jammit::Lite::Bundle.new(:stylesheets => name)  }
-        return include_individual_stylesheets(bundles) unless Rails.env.production? || Rails.env.demo? || Rails.env.testing?  
-        tags = bundles.map { |bundle| stylesheet_link_tag(bundle.path) }
+        return include_individual_stylesheets(bundles, options) unless Rails.env.production? || Rails.env.demo? || Rails.env.testing?  
+        tags = bundles.map { |bundle| stylesheet_link_tag(bundle.path, options) }
         tags.join("\n")
       end
 
       private
       
-      
-      
       # creates <script> tags for each individual file in given Array of bundles
-      def include_individual_stylesheets(bundles=[])
+      def include_individual_stylesheets(bundles = [], options = {})
         tags = []
         bundles.each do |bundle|      
-          tags.concat bundle.files.map { |css| stylesheet_link_tag(css.path)  }
+          tags.concat bundle.files.map { |css| stylesheet_link_tag(css.path, options)  }
         end
         tags.join("\n")
       end
-
-      # returns hash for stylesheet link tag attributes for given file
-      def attributes_for_stylesheet_link(file)
-        {:href => file.path, :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
-      end
-      
-      
-
     end
-    
   end
-  
-
-  
 end
 
 # Include the Jammit asset helpers in all views, a-la ApplicationHelper.
