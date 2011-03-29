@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{sc_jammit_lite}
+  s.name = %q{jammit_lite}
   s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
      "test/helper.rb",
      "test/test_jammit_lite.rb"
   ]
-  s.homepage = %q{http://github.com/smoothcontract/jammit_lite}
+  s.homepage = %q{http://github.com/hornairs/jammit_lite}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
