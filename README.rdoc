@@ -1,18 +1,24 @@
 = jammit_lite
 
-Jammit::Lite replaces Jammit in production Rails apps that pre-bundle all their files, e.g. Heroku. Removing Jammit as a dependency from the production app saves over 9MB, which means faster deploys at Heroku.
+Jammit::Lite replaces Jammit in production Rails apps that pre-bundle all their files, e.g. Heroku. Removing Jammit as a dependency from the production app saves over 9MB, which means faster deploys at Heroku. This version of jammit_lite is Rails 3 and Ruby 1.9 compatible.
 
 == Installation
 
-sudo gem install jammit_lite
+gem install jammit_lite
 
 To switch over you need to make two changes:
 
-=== In config/enviroment.rb
-config.gem 'jammit' to config.gem 'jammit_lite'
+=== Rails 3
 
-=== In config/routes.rb
-change Jammit::Routes.draw(map) to Jammit::Lite::Routes.draw(map)
+In your Gemfile, change +gem 'jammit'+ to +gem 'jammit_lite, :git => "git@github.com:hornairs/jammit_lite.git"'
+
+=== Rails 2
+
+In config/enviroment.rb
+change +config.gem 'jammit'+ to +config.gem 'jammit_lite'+
+
+In config/routes.rb
+change +Jammit::Routes.draw(map)+ to +Jammit::Lite::Routes.draw(map)+
 
 
 == Note on Patches/Pull Requests
