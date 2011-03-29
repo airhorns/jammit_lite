@@ -1,7 +1,5 @@
 module Jammit
-  
   module Lite
-    
     class Bundle
       
       # takes array of files from yaml hash and expands any wilcards

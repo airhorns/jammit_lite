@@ -1,7 +1,5 @@
 module Jammit
-  
   module Lite
-    
     module Helper
       
       #= Javascript Helpers
@@ -13,7 +11,7 @@ module Jammit
         bundles.map! { |name| Jammit::Lite::Bundle.new(:javascripts => name)  }
         return include_individual_javascripts(bundles) unless Rails.env.production? || Rails.env.demo? || Rails.env.testing?   
         tags = bundles.map { |bundle| javascript_include_tag(bundle.path) }
-        tags.join("\n")
+        html_safe tags.join("\n")
       end
 
       # creates <script> tags for Jammit templates
@@ -29,7 +27,7 @@ module Jammit
         bundles.each do |bundle|      
           tags.concat bundle.files.map { |js| javascript_include_tag(js.path) }
         end
-        tags.join("\n")
+        html_safe tags.join("\n")
       end
       
       public
@@ -44,7 +42,7 @@ module Jammit
         bundles.map! { |name| Jammit::Lite::Bundle.new(:stylesheets => name)  }
         return include_individual_stylesheets(bundles, options) unless Rails.env.production? || Rails.env.demo? || Rails.env.testing?  
         tags = bundles.map { |bundle| stylesheet_link_tag(bundle.path, options) }
-        tags.join("\n")
+        html_safe tags.join("\n")
       end
 
       private
@@ -55,8 +53,14 @@ module Jammit
         bundles.each do |bundle|      
           tags.concat bundle.files.map { |css| stylesheet_link_tag(css.path, options)  }
         end
-        tags.join("\n")
+        html_safe tags.join("\n")
       end
+      
+      # Thanks chatgris, https://github.com/chatgris/jammit_lite/commit/a93f428f96eaccf2d4753d3e14a638866945e6c9
+      def html_safe(string)	
+        string.respond_to?(:html_safe) ? string.html_safe : string
+      end
+      
     end
   end
 end
