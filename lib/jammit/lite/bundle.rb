@@ -33,8 +33,8 @@ module Jammit
 
       def extension
         case @filetype
-        when :javascripts : 'js'
-        when :stylesheets : 'css'
+        when :javascripts then 'js'
+        when :stylesheets then 'css'
         end
       end
 
