@@ -10,15 +10,15 @@ To switch over you need to make two changes:
 
 === Rails 3
 
-In your Gemfile, change +gem 'jammit'+ to +gem 'jammit_lite, :git => "git@github.com:hornairs/jammit_lite.git"'
+In your Gemfile, change ++gem 'jammit'++ to ++gem 'jammit_lite, :git => "git@github.com:hornairs/jammit_lite.git"'++
 
 === Rails 2
 
 In config/enviroment.rb
-change +config.gem 'jammit'+ to +config.gem 'jammit_lite'+
+change ++config.gem 'jammit'++ to ++config.gem 'jammit_lite'++
 
 In config/routes.rb
-change +Jammit::Routes.draw(map)+ to +Jammit::Lite::Routes.draw(map)+
+change ++Jammit::Routes.draw(map)++ to ++Jammit::Lite::Routes.draw(map)++
 
 
 == Note on Patches/Pull Requests

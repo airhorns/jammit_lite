@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
      "lib/jammit/lite/helper.rb",
      "lib/jammit/lite/routes.rb",
      "lib/jammit_lite.rb",
-     "sc_jammit_lite.gemspec",
+     "jammit_lite.gemspec",
      "test/helper.rb",
      "test/test_jammit_lite.rb"
   ]
